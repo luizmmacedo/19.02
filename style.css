@@ -1,0 +1,260 @@
+/* Resetando margens e preenchimentos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F0F8FF; /* Fundo de Natal (neve) */
+    font-size: 20px;
+    color: #333;
+    background-image: url('https://www.transparenttextures.com/patterns/snowflakes.png'),
+                      url('https://upload.wikimedia.org/wikipedia/commons/a/ae/Natal_background.jpg'); /* Fundo com textura de neve */
+    background-repeat: repeat, no-repeat;
+    background-position: center center;
+}
+
+/* Estilo da barra de navegação */
+header {
+    background-color: #008000; /* Verde natalino */
+    color: white;
+    padding: 15px;
+    border-bottom: 3px solid #FFD700; /* Linha dourada */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #FFD700; /* Dourado no hover */
+}
+
+/* Estilo para o botão de música */
+#playMusicBtn {
+    background-color: #FFD700; /* Dourado */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#playMusicBtn:hover {
+    background-color: #FFA500; /* Laranja de natal */
+}
+
+/* Estilo do grid de pacotes */
+.grid-container {
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: #008000;; /* Vermelho natalino */
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do footer */
+footer {
+    background-color: #008000; /* Verde natalino */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilo do título */
+.JFK {
+    text-align: center;
+    font-size: 70px;
+    color: #FFD700; /* Dourado */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Estilo para o contador */
+.time {
+    text-align: center;
+    font-size: 50px;
+    color:#008000;; /* Laranja natalino */
+}
+
+/* Estilo para a seção de pacotes */
+.pct {
+    color: #008000;; /* Vermelho natalino */
+    text-align: center;
+    font-size: 50px;
+}
+
+/* CSS para o banner rotativo */
+#banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    overflow: hidden;
+    position: relative;
+    background:#008000;  /* Cor suave para o banner */
+}
+
+/* Efeito de neve */
+.snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    z-index: 1000;
+    pointer-events: none;
+    color: white;
+    font-size: 20px;
+    opacity: 0.9;
+    animation: snow 10s linear infinite, drift 5s ease-in-out infinite;
+}
+
+@keyframes snow {
+    0% {
+        top: -10px;
+        opacity: 0.9;
+    }
+    100% {
+        top: 100vh; /* A neve vai até o final da tela */
+        opacity: 0.5; /* Fica mais transparente enquanto desce */
+    }
+}
+
+@keyframes drift {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(20px); /* Desvia aleatoriamente para a direita */
+    }
+    100% {
+        transform: translateX(-20px); /* Desvia aleatoriamente para a esquerda */
+    }
+}
+
+/* Animação do Papai Noel */
+#papaiNoel {
+    position: fixed;
+    top: 50px; /* posição fixa no topo */
+    left: -150px; /* Começa fora da tela à esquerda */
+    width: 100px;
+    animation: movePapaiNoel 10s linear infinite;
+}
+
+/* Definição da animação de movimento */
+@keyframes movePapaiNoel {
+    0% {
+        left: -150px; /* Começa fora da tela à esquerda */
+    }
+    50% {
+        left: 50%; /* Meio da animação, no centro da tela */
+        transform: translateX(-50%); /* Centraliza o Papai Noel na tela */
+    }
+    100% {
+        left: 100%; /* Fim da animação, saindo para a direita */
+    }
+}
+
+
+/* Responsividade: Ajustes para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .JFK {
+        font-size: 50px;  /* Ajusta o tamanho do título */
+    }
+
+    .time {
+        font-size: 30px;  /* Ajusta o tamanho do contador */
+    }
+
+    .pct {
+        font-size: 35px;  /* Ajusta o tamanho do título de pacotes */
+    }
+
+    #banner {
+        height: 500px;  /* Ajusta a altura do banner para telas menores */
+    }
+
+    nav ul {
+        flex-direction: column;  /* Torna a navegação vertical em telas menores */
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Ajusta o número de colunas */
+    }
+
+    .grid-item {
+        font-size: 18px;  /* Reduz o tamanho do texto */
+    }
+
+    #playMusicBtn {
+        font-size: 14px;  /* Ajusta o tamanho da fonte do botão */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .JFK {
+        font-size: 40px;  /* Ajusta ainda mais o tamanho do título */
+    }
+
+    .time {
+        font-size: 25px;  /* Ajusta ainda mais o tamanho do contador */
+    }
+
+    .pct {
+        font-size: 30px;  /* Ajusta ainda mais o tamanho do título de pacotes */
+    }
+
+    #banner {
+        height: 400px;  /* Ajusta a altura do banner para dispositivos muito pequenos */
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; /* Exibe uma coluna para telas muito pequenas */
+    }
+
+    .grid-item {
+        font-size: 16px;  /* Ajusta o tamanho do texto */
+    }
+}
